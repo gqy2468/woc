@@ -1,0 +1,9 @@
+{include file="page_header.lbi"}
+<div id="col1">{include file="page_sidebar.lbi"}</div>
+<div id="col2">
+{if $message}
+	<p>The following error occurred:</p>
+	{$message}
+{/if}
+</div>
+{include file="page_footer.lbi"}

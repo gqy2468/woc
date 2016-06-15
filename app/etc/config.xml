@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+	<website>
+		<root>/Operation/</root>
+	</website>
+	<viewer>
+		<engine>smarty</engine>
+		<cache>0</cache>
+	</viewer>
+	<database>
+		<adapter>PDO_MYSQL</adapter>
+		<params>
+			<host>localhost</host>
+			<username>root</username>
+			<password>123456</password>
+			<dbname>operation</dbname>
+		</params>
+	</database>
+</configdata>

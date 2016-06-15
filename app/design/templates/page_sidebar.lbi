@@ -1,0 +1,61 @@
+
+
+   <div class="tabs_menu">
+	<h3>运营管理</h3>
+	{if $permission.0.perm}
+	<ul>
+		{if "/网站管理/" eq $permission.0.perm}
+			<li><a href="{$r}site/" {$site}>网站管理</a></li>
+		{/if}
+		{if "/域名管理/" eq $permission.0.perm}
+			<li><a href="{$r}domain/" {$domain}>域名管理</a></li>
+		{/if}
+		{if "/主机管理/" eq $permission.0.perm}
+			<li><a href="{$r}host/" {$host}>主机管理</a></li>
+		{/if}
+		{if "/数据管理/" eq $permission.0.perm}
+			<li><a href="{$r}data/" {$data}>数据管理</a></li>
+		{/if}
+		{if "/邮箱管理/" eq $permission.0.perm}
+			<li><a href="{$r}email/" {$email}>邮箱管理</a></li>
+		{/if}
+	</ul>
+	{else}
+	<ul>
+			<li><a href="{$r}site/" {$site}>网站管理</a></li>
+			<li><a href="{$r}domain/" {$domain}>域名管理</a></li>
+			<li><a href="{$r}host/" {$host}>主机管理</a></li>
+			<li><a href="{$r}data/" {$data}>数据管理</a></li>
+			<li><a href="{$r}email/" {$email}>邮箱管理</a></li>
+	</ul>
+	{/if}
+	<h3>系统管理</h3>
+	{if $permission.0.perm}
+	<ul>
+		{if "/用户管理/" eq $permission.0.perm}		
+			<li><a href="{$r}user/" {$userlist}>用户管理</a></li>
+		{/if}
+		{if "/角色管理/" eq $permission.0.perm}	
+			<li><a href="{$r}role/" {$rolelist}>角色管理</a></li>
+		{/if}
+		{if "/分类管理/" eq $permission.0.perm}
+			<li><a href="{$r}type/" {$type}>分类管理</a></li>
+		{/if}
+		{if "/功能管理/" eq $permission.0.perm}
+			<li><a href="{$r}function/" {$func}>功能管理</a></li>
+		{/if}
+		{if "/缓存管理/" eq $permission.0.perm}
+			<li><a href="{$r}caches/" {$cac}>缓存管理</a></li>
+		{/if}
+	</ul>
+	{else}
+	<ul>
+			<li><a href="{$r}user/" {$userlist}>用户管理</a></li>
+			<li><a href="{$r}role/" {$rolelist}>角色管理</a></li>
+			<li><a href="{$r}type/" {$type}>分类管理</a></li>
+			<li><a href="{$r}function/" {$func}>功能管理</a></li>
+			<li><a href="{$r}caches/" {$cac}>缓存管理</a></li>
+	</ul>
+	{/if}
+
+</div>

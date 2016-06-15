@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Default Layout
+ *  
+ * @author   yjzzj.com
+ * @version  1.1
+ */
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php 
+echo $this->headTitle('WOC Website Operations Center');
+echo $this->headScript()->appendFile($this->r.'skin/js/yahoo-dom-event.js')
+	    		->appendFile($this->r.'skin/js/yahoo.js')
+	    		->appendFile($this->r.'skin/js/event.js')
+	    		->appendFile($this->r.'skin/js/connection.js')
+	    		->appendFile($this->r.'skin/js/json.js')
+	    		->appendFile($this->r.'skin/js/jquery.js')
+	    		->appendFile($this->r.'skin/js/layer.js')
+	    		->appendFile($this->r.'skin/js/TableSorter.js')
+	    		->appendFile($this->r.'skin/js/viewNote.js');
+echo $this->headLink()->appendStylesheet($this->r."skin/style/css.css")
+	    		->appendStylesheet($this->r."skin/style/style.css")
+	    		->appendStylesheet($this->r."skin/style/web.css");
+?>
+</head>
+<body>
+<div id="mask"></div>
+<div id="append_parent"></div>
+<div id="float_window"></div>
+<div id="header">
+	  <h1 class="logo"><a href="<?php echo $this->r; ?>">logo</a></h1>
+	  <ul class="header_right">
+	   <li>Logged in as <?php echo $this->user->name;?></li>
+	   <li><?php echo date("l ,F j, Y");?></li>
+	   <li class="logOut"><a href="<?php echo $this->r; ?>auth/logout">logOut</a></li>
+	  </ul>
+</div>  
+<div class="messageBox">
+<div id="_x"></div>
+</div>
+<div id="pg_margins">
+<div id="col1"><?php echo $this->layout()->sidebar;?></div>
+<div id="col2"><?php echo $this->layout()->content ?></div>			
+</div>
+<div class="ft-bg2">&nbsp;</div>
+<div id="footer"> <b class="c_spot">WOC</b> Website Operations Center Version 1.0( <a href="http://www.yjzzj.com" target="_blank"><b class="c_spot">YJZZJ.COM</b></a> )</div>
+</body>
+</html>
+

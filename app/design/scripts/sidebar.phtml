@@ -1,0 +1,61 @@
+
+
+   <div class="tabs_menu">
+	<h3>运营管理</h3>
+	<?php if($this->permission[0]['perm']):?>
+	<ul>
+		<?php if(preg_match("/网站管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>site/" <?php echo $this->site;?>>网站管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/域名管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>domain/" <?php echo $this->domain;?>>域名管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/主机管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>host/" <?php echo $this->host;?>>主机管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/数据管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>data/" <?php echo $this->data;?>>数据管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/邮箱管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>email/" <?php echo $this->email;?>>邮箱管理</a></li>
+		<?php endif;?>
+	</ul>
+	<?php else:?>
+	<ul>
+			<li><a href="<?php echo $this->r; ?>site/" <?php echo $this->site;?>>网站管理</a></li>
+			<li><a href="<?php echo $this->r; ?>domain/" <?php echo $this->domain;?>>域名管理</a></li>
+			<li><a href="<?php echo $this->r; ?>host/" <?php echo $this->host;?>>主机管理</a></li>
+			<li><a href="<?php echo $this->r; ?>data/" <?php echo $this->data;?>>数据管理</a></li>
+			<li><a href="<?php echo $this->r; ?>email/" <?php echo $this->email;?>>邮箱管理</a></li>
+	</ul>
+	<?php endif;?>
+	<h3>系统管理</h3>
+	<?php if($this->permission[0]['perm']):?>
+	<ul>
+		<?php if(preg_match("/用户管理/",$this->permission[0]['perm'])):?>		
+			<li><a href="<?php echo $this->r; ?>user/" <?php echo $this->userlist;?>>用户管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/角色管理/",$this->permission[0]['perm'])):?>	
+			<li><a href="<?php echo $this->r; ?>role/" <?php echo $this->rolelist?>>角色管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/分类管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>type/" <?php echo $this->type;?>>分类管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/功能管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>function/" <?php echo $this->func;?>>功能管理</a></li>
+		<?php endif;?>
+		<?php if(preg_match("/缓存管理/",$this->permission[0]['perm'])):?>
+			<li><a href="<?php echo $this->r; ?>caches/" <?php echo $this->cac;?>>缓存管理</a></li>
+		<?php endif;?>
+	</ul>
+	<?php else:?>
+	<ul>
+			<li><a href="<?php echo $this->r; ?>user/" <?php echo $this->userlist;?>>用户管理</a></li>
+			<li><a href="<?php echo $this->r; ?>role/" <?php echo $this->rolelist?>>角色管理</a></li>
+			<li><a href="<?php echo $this->r; ?>type/" <?php echo $this->type;?>>分类管理</a></li>
+			<li><a href="<?php echo $this->r; ?>function/" <?php echo $this->func;?>>功能管理</a></li>
+			<li><a href="<?php echo $this->r; ?>caches/" <?php echo $this->cac;?>>缓存管理</a></li>
+	</ul>
+	<?php endif;?>
+
+</div>

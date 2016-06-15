@@ -1,0 +1,133 @@
+{include file="page_header.lbi"}
+<div id="col1">{include file="page_sidebar.lbi"}</div>
+<div id="col2">
+<div class="location">修改网站</div>
+
+<form action="{$r}site/edit" method="post" name="addform">
+<table class="bd_c_1" cellpadding="0" cellspacing="0">
+		<tr><label>{$msgSite}</label></tr>
+		<tr>
+			<td><label>网站域名:</label><input type="text" name="name" value="{$rsInfo.name}" size=30/></td>
+		</tr>
+		<tr>
+			<td><label>网站后台:</label><input type="text" name="admin" value="{$rsInfo.admin}" size=30/></td>
+		</tr>
+		<tr>
+			<td><label>用户名称:</label><input type="text" name="username" value="{$rsInfo.username}" size=30/></td>
+		</tr>
+		<tr>
+			<td><label>用户密码:</label><input type="text" name="password" value="{$rsInfo.password}" size=30/></td>
+		</tr>
+		<tr>
+			<td><label>连接方式:</label><input type="text" name="method" value="{$rsInfo.method}" size=30/></td>
+		</tr>
+		<tr>
+			<td><label>订单数量:</label><input type="text" name="onum" value="{$rsNum.onum}" size=30/></td>
+		</tr>
+		<tr>
+			<td><label>客户数量:</label><input type="text" name="cnum" value="{$rsNum.cnum}" size=30/></td>
+		</tr>
+		<tr>
+			<td>
+			<label>网站状态:</label>
+			<input type="radio" name="status" id="status0" value="0"{if 0 == $rsInfo.status} checked{/if}/><label for="status0">使用中</label>
+			<input type="radio" name="status" id="status1" value="1"{if 1 == $rsInfo.status} checked{/if}/><label for="status1">已出错</label>
+			<input type="radio" name="status" id="status1" value="2"{if 2 == $rsInfo.status} checked{/if}/><label for="status1">维护中</label>
+			<input type="radio" name="status" id="status1" value="3"{if 3 == $rsInfo.status} checked{/if}/><label for="status1">已停用</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>网站类型:</label>
+			<select name="site_type">
+				{foreach from=$type item=item}
+					{if 0 == $rsInfo.tid}
+					<option value="">请选择</option>
+					{else}
+					{if $item.tid == $rsInfo.tid}
+						<option value="{$item.tid}" selected>{$item.name}</option>
+					{else}
+						<option value="{$item.tid}">{$item.name}</option>
+					{/if}
+					{/if}
+				{/foreach}
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>网站域名:</label>
+			<select name="domain">
+				{if 0 == $rsInfo.dmid}
+					<option value="">请选择</option>
+				{/if}
+				{foreach from=$domain item=item}
+					{if $item.id == $rsInfo.dmid}
+						<option value="{$item.id}" selected>{$item.name}</option>
+					{else}
+						<option value="{$item.id}">{$item.name}</option>
+					{/if}
+				{/foreach}
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>网站主机:</label>
+			<select name="host">
+				{if 0 == $rsInfo.hid}
+					<option value="">请选择</option>
+				{/if}
+				{foreach from=$host item=item}
+					{if $item.id == $rsInfo.hid}
+						<option value="{$item.id}" selected>{$item.ip}</option>
+					{else}
+						<option value="{$item.id}">{$item.ip}</option>
+					{/if}
+				{/foreach}
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>网站数据库:</label>
+			<select name="data">
+				{if 0 == $rsInfo.dbid}
+					<option value="">请选择</option>
+				{/if}
+				{foreach from=$data item=item}
+					{if $item.id == $rsInfo.dbid}
+						<option value="{$item.id}" selected>{$item.name}</option>
+					{else}
+						<option value="{$item.id}">{$item.name}</option>
+					{/if}
+				{/foreach}
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<label>网站邮箱:</label>
+			<select name="email">
+				{if 0 == $rsInfo.eid}
+					<option value="">请选择</option>
+				{/if}
+				{foreach from=$email item=item}
+					{if $item.id == $rsInfo.eid}
+						<option value="{$item.id}" selected>{$item.name}</option>
+					{else}
+						<option value="{$item.id}">{$item.name}</option>
+					{/if}
+				{/foreach}
+			</select>
+			</td>
+		</tr>
+		<input type="hidden" name="id" value="{$rsInfo.sid}"/>
+		<input type="hidden" name="oldname" value="{$rsInfo.name}"/>
+		<tr>
+			<td><input type="submit" name="rsubmit" value="修改 " class="buttons_a"/></td>
+		</tr>
+	</table>
+</form>
+</div>
+{include file="page_footer.lbi"}

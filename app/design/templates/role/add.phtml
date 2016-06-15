@@ -1,0 +1,25 @@
+{include file="page_header.lbi"}
+<div id="col1">{include file="page_sidebar.lbi"}</div>
+<div id="col2">
+<div class="location">添加角色</div>
+
+<form action="{$r}role/add" method="post" name="addform">
+<table class="bd_c_1" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><label>角色添加:</label><input type="text" name="name" value="" size=64/><input type="submit" name="rsubmit" value="添加" class="buttons_a"/></td>
+		</tr>
+		<tr>
+			<td><label>资源选择:</label><select name='resource' onchange='if(this.value=="1")$("#res_area").show();else $("#res_area").hide();'><option value='0'>全部</option><option value="1">选择</option></select></td>
+		</tr>
+		<tr id="res_area" style='display:none'>
+			<td>
+				{foreach from=$rs key=i item=item}
+					<input id="{$i}" type="checkbox" name="role[]" value="{$item.name}"><label for="{$i}">{$item.name}</label>
+				{/foreach}
+			</td>
+		</tr>
+		<tr><label>{$msgRole}</label></tr>
+	</table>
+</form>
+</div>
+{include file="page_footer.lbi"}

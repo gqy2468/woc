@@ -1,0 +1,78 @@
+{include file="page_header.lbi"}
+<div id="col1">{include file="page_sidebar.lbi"}</div>
+<div id="col2">
+<div class="location">修改用户</div>
+<form action="{$r}user/edit" method="post" name="addform">
+<table class="bd_c_1" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><label>用户名称:</label></td><td><input type="text" name="name" class="ipt_m" value="{$usr.0.name}" size="18"/></td><td>{$msgName}</td>
+		</tr>
+		<tr>
+			<td><label>密码:</label></td><td><input type="password" name="pass" class="ipt_m" value="" size="18"/></td><td>{$msgPass}</td>
+		</tr>
+		<tr>
+			<td><label>重复密码:</label></td><td><input type="password" name="repass" class="ipt_m" value="" size="18"/></td><td>{$msgRepass}</td>
+		</tr>
+		<tr>
+			<td><label>电子邮箱:</label></td><td><input type="text" name="email" class="ipt_m" value="{$usr.0.email}" size="18"/></td><td>{$msgEmail}</td>
+		</tr>
+		<tr>
+			<td><label>联系电话:</label></td>
+			<td>
+				<input type="text" name="tel" class="ipt_m" value="{$usr.0.telphone}" size="18"/></td>
+			
+			<td>{$msgTelephone}</td>
+		</tr>
+		<tr>
+			<td><label>状态:</label></td>
+			<td>
+				{if $usr.0.status == "0"}
+					<input type="radio" name="status" id="status0" value="0" checked/><label for="status0">禁用</label><input type="radio" name="status" id="status1" value="1" /><label for="status1">开启</label>
+				{else}
+					<input type="radio" name="status" id="status0" value="0" /><label for="status0">禁用</label><input type="radio" name="status" id="status1" value="1" checked/><label for="status1">开启</label>			
+				{/if}
+			</td><td></td>
+		</tr>
+		<tr>
+			<td><label>所属角色:</label></td>
+			<td>
+				<select name="role">
+					{foreach from=$rs item=item}
+						{if $usr.0.rid == $item.rid}
+							<option value="{$item.name}|{$item.rid}" selected>{$item.name}</option>
+						{else}
+							<option value="{$item.name}|{$item.rid}" >{$item.name}</option>
+						{/if}
+					{/foreach}
+				</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><label>所属产品:</label></td>
+			<td>
+				<select name="product">
+					{if $usr.0.ptid == 0}
+						<option value="All Product|0" selected>全部</option>
+					{else}
+						<option value="All Product|0" >All Product</option>
+					{/if}
+					{foreach from=$pt item=item}
+						{if $usr.0.ptid == $item.ptid}
+							<option value="{$item.name}|{$item.ptid}" selected>{$item.name}</option>
+						{else}
+							<option value="{$item.name}|{$item.ptid}" >{$item.name}</option>
+						{/if}
+					{/foreach}
+				</select>
+			</td>
+			<td></td>
+		</tr>
+		<input type="hidden" name="id" value="{$usr.0.uid}"/>
+		<tr>
+			<td colspan="3"><input type="submit" name="rsubmit" value="修改" class="buttons_a"/></td>
+		</tr>
+	</table>
+</form>
+</div>
+{include file="page_footer.lbi"}

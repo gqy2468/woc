@@ -1,0 +1,32 @@
+{if $pages->pageCount}
+<div class="vpager">
+<ul class="pager">
+<li><label>当前页记录:</label>{$pages->currentItemCount}</li>
+<li><label>总记录:</label>{$pages->totalItemCount}</li>
+<li><label>总页数:</label>{$pages->pageCount}</li>
+<!-- Previous page link -->
+{if $pages->previous}  
+<li><a href="{$pages->previous}">    &lt; Previous  </a></li>
+{else}
+<li class="prev">&lt; Previous</li>
+{/if}
+<!-- Numbered page links --> {$pages->current}
+{foreach from=$pages->pagesInRange item=page}  
+{if $page neq $pages->current}   
+<li><a href="{$page}"> {$page} </a></li>
+{else}
+<li  class="active"> {$page} </li>
+{/if}
+{/foreach}
+<!-- Next page link -->
+{if $pages->next}
+<li class="next"><a href="{$pages->next}">    Next &gt;  </a></li>
+{else}
+<li>Next &gt;</li>
+{/if}
+</ul>
+</div>
+{/if}
+
+ 
+

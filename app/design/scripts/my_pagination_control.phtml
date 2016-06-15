@@ -1,0 +1,24 @@
+<?php if ($this->pageCount): ?>
+  <div class="vpager">
+    <ul class="pager">
+  		<li><label>当前页记录:</label><?php echo $this->currentItemCount;?></li>
+		<li><label>总记录:</label><?php echo $this->totalItemCount;?></li>
+		<li><label>总页数:</label><?php echo $this->pageCount;?></li>
+
+<!-- Previous page link -->
+
+<?php if (isset($this->previous)): ?>  
+<li>
+<a href="<?php echo $this->url(array('page' => $this->previous)); ?>">    &lt; Previous  </a></li>
+<?php else: ?>  <li class="prev">&lt; Previous</li><?php endif; ?>
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page): ?>  
+<?php if ($page != $this->current): ?>    
+<li><a href="<?php echo $this->url(array('page' => $page)); ?>">        
+<?php echo $page; ?>    </a> </li> <?php else: ?>   <li  class="active"> <?php echo $page; ?> </li> <?php endif; ?><?php endforeach; ?>
+<!-- Next page link -->
+<?php if (isset($this->next)): ?> <li class="next"> <a href="<?php echo $this->url(array('page' => $this->next,'numPage'=> $this->currentItemCount)); ?>">    Next &gt;  </a></li>
+<?php else: ?>  <li>Next &gt;</li><?php endif; ?></ul></div><?php endif; ?>
+
+ 
+

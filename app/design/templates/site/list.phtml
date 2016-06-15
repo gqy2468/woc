@@ -1,0 +1,77 @@
+{include file="page_header.lbi"}
+<div id="col1">{include file="page_sidebar.lbi"}</div>
+<div id="col2">
+<div class="location">网站管理</div>
+
+<div class="massaction"><a href="{$r}site/add">添加</a></div>
+	
+<table class="bd_c_1" cellpadding="0" cellspacing="0">
+	<tr class="headings">
+		<td>编号</td>
+		<td>名称</td>
+		<td>账号</td>
+		<td>密码</td>
+		<td>订单数量</td>
+		<td>客户数量</td>
+		<td>状态</td>
+		<td>操作</td>
+	</tr>
+{foreach from=$paginator key=i item=item}
+{if $i%2 == 0}
+	<tr bgcolor="#F6F6F6">
+		<td>{$item.sid}</td>
+		<td><a target="_blank" href="http://{$item.name}/">{$item.name}</a></td>
+		<td>{$item.username}</td>
+		<td>{$item.password}</td>
+		<td>{$item.mynum}</td>
+		<td>{$item.mynum2}</td>
+		<td>
+		     {if 0 == $item.status}使用中
+		     {elseif 1 == $item.status}已出错
+		     {elseif 2 == $item.status}维护中
+		     {elseif 3 == $item.status}已停用
+		     {/if}
+		</td>
+		<td>
+		<a target="_blank" href="http://{$item.admin}/">管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}site/edit/id/{$item.sid}">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}site/delete/id/{$item.sid}">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}domain/list/id/{$item.dmid}">域名</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}host/list/id/{$item.hid}">主机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}data/list/id/{$item.dbid}">数据库</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}email/list/id/{$item.eid}">邮箱</a>
+		</td>
+	</tr>
+{else}
+	<tr>
+		<td>{$item.sid}</td>
+		<td><a target="_blank" href="http://{$item.name}/">{$item.name}</a></td>
+		<td>{$item.username}</td>
+		<td>{$item.password}</td>
+		<td>{$item.mynum}</td>
+		<td>{$item.mynum2}</td>
+		<td>
+		     {if 0 == $item.status}使用中
+		     {elseif 1 == $item.status}已出错
+		     {elseif 2 == $item.status}维护中
+		     {elseif 3 == $item.status}已停用
+		     {/if}
+		</td>
+		<td>
+		<a target="_blank" href="http://{$item.admin}/">管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}site/edit/id/{$item.sid}">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}site/delete/id/{$item.sid}">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}domain/list/id/{$item.dmid}">域名</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}host/list/id/{$item.hid}">主机</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}data/list/id/{$item.dbid}">数据库</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="{$r}email/list/id/{$item.eid}">邮箱</a>
+		</td>
+	</tr>
+{/if}
+{/foreach}
+	<tr>
+		<td colspan="8" align="right">{include file="my_pagination_control.lbi"}</td>
+	</tr>
+</table>
+</div>
+{include file="page_footer.lbi"}
